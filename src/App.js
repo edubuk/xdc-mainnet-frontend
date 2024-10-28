@@ -1,11 +1,10 @@
 import "./App.css";
 import NavBar from "./Components/NavBar/Navbar";
 import { Route, Routes } from "react-router-dom";
-import  {Home, Admin, Institute,Holder}  from "./Components/index";
+import  {Home, Admin, Institute,Holder,Verifier,Finder,About,CETA,MediaMention}  from "./Components/index";
 import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
-import Verifier from "./Components/Verifier/Verifier";
-import Finder from "./Components/CredentialFinder/Finder";
+
 function App() {
 
   useEffect(() => {
@@ -24,7 +23,10 @@ function App() {
       <NavBar></NavBar>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/ceta" element={<CETA />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/media-mention" element={<MediaMention />} />
         <Route path="/issuer" element={<Institute />} />
         <Route path="/holder" element={<Holder />} />
         <Route path="/verifier" element={<Verifier />} />

@@ -19,8 +19,11 @@ const Navbar = () => {
 
   const navData = [
     { name: "Home", path: "/" },
+    { name: "About", path:"/about"},
+    { name:"CETA", path:"/ceta"},
     { name: "Issuer", path: "/issuer" },
     { name: "Verifier", path: "/verifier" },
+    { name:"Media",path:"/media-mention"},
     { name: "Holder", path: "/holder" },
     { name: "Finder", path: "/finder" },
     { name: "Admin", path: "/admin" },
@@ -67,7 +70,6 @@ const Navbar = () => {
                   {data.name}
                 </Link>
               ))}
-              <div className='animation start-home'></div>
             </nav>
           ) : !openSidebar ? (
             <GiHamburgerMenu className='menu-btn' onClick={() => setOpenSidebar(true)} />

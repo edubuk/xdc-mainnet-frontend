@@ -121,6 +121,7 @@ const Model = ({ setOpenModal, currUri, isShareBtn }) => {
       });
       
       const data = await res.json();
+      console.log("accessList ",data);
       if(data.success)
       {
         console.log("data",data.record)
@@ -180,7 +181,7 @@ const Model = ({ setOpenModal, currUri, isShareBtn }) => {
                 <div key={index} className="shared-list">
                   <p>
                     <strong>{item.name}</strong> --{" "}
-                    <strong>{item.email?.slice(0, 9)}</strong>...
+                    <strong>{item.email}</strong>
                   </p>
                   {loading ? (
                     <SmallLoader />

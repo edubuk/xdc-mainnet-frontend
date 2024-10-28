@@ -119,11 +119,15 @@
 
 /* Media query for small screens */
 @media (max-width: 768px) {
+  .error-container {
+   height: 80vh;
+}
   h1 {
     font-size: 1.2rem; /* Adjust text for smaller screens */
   }
 
   .lock {
+    
     width: 15vw; /* Adjust size for smaller screens */
     height: 12vw;
   }

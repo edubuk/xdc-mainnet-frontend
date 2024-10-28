@@ -91,6 +91,7 @@ const [values, setValues] = useState({
     <div className="verify-container">
       <form>
         <h2>Verify Certificates</h2>
+        <p>Verify Academic & Work-Experience Certificates and CVs on Blockchain in a transparent & tamper-proof manner</p>
         <div className="upload-section">
           <input
             type="file"
