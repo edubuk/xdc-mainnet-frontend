@@ -61,7 +61,7 @@
 
 .home-description p {
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.5;
   color: #34495e;
   margin-top: 20px;
   animation: slideIn 2s ease-out;
@@ -180,14 +180,14 @@
 
 .box span {
   position: absolute;
-  top: 0;
+  top: 10px;
   left: 0;
   width: 100%;
   height: 100%;
   transform-origin: center;
   transform-style: preserve-3d;
-  transform: rotateY(calc(var(--i) * 36deg)) translateZ(400px);
-  -webkit-box-reflect: below 2px
+  transform: rotateY(calc(var(--i) * 36deg)) translateZ(300px);
+  -webkit-box-reflect: below 1px
     linear-gradient(transparent, transparent, rgba(4, 4, 4, 0.267));
 }
 
@@ -307,6 +307,7 @@
 /* Button styling */
 .learn-more-btn {
   background-color: #1687a0;
+  text-decoration: none;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -507,6 +508,10 @@
   .collaborator-section {
     flex-direction: column;
   }
+  .home-issue-button {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
 }
 
 /* Responsive styling */
@@ -532,4 +537,52 @@
     transition: 0.5s;
     border-radius: 15px;
   }
+
+  .home-hero-image {
+    max-width: 350px;
+  }
+  .home-introduction {
+    font-size: 24px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .home-title {
+    font-size: 36px;
+  }
+
+  .home-description p {
+    font-size: 14px;
+  }
+  .home-content {
+    padding-top: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .home-issue-button {
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding: 12px 20px;
+    font-size: 18px;
+  }
+
+}
+
+@media (max-width:360px) {
+  #learnerprofile {
+    margin-top: 40px;
+  }
+  .box
+  {
+    max-width: 350px;
+  }
+  .box span {
+    transform: rotateY(calc(var(--i) * 36deg)) translateZ(180px);
+  }
+
 }

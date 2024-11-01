@@ -50,7 +50,7 @@ const About = () => {
       imgSrc:advisor1,
       name:"Ish Anand",
       tag: "Serial Entrepreneur, Advisor in Startups, Global Citizen",
-      linkedInLink:"https://www.linkedin.com/in/muagrawal/",
+      linkedInLink:"https://www.linkedin.com/in/ishanand/",
     },
     {
       id:2,

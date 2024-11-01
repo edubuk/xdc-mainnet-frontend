@@ -29,7 +29,8 @@
 .team-member
 {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    row-gap: 20px;
     place-items: center;
     width: 100%;
 }
@@ -62,3 +63,9 @@
     margin-top: 10px;
 }
 
+@media  screen and (max-width:350px) {
+    .team-member
+   {
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  }
+}

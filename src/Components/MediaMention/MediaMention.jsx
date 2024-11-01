@@ -16,7 +16,7 @@ import cnbc from './MediaImages/cnbc.png'
 import taim from './MediaImages/TAIM.png'
 import metaverse from './MediaImages/metaVerse.png'
 import theHindu from './MediaImages/TheHindu.png'
-import timesNext from './MediaImages/TimesNext.png'
+import einpresswire from './MediaImages/einpresswire.svg'
 import raiseMoney from './MediaImages/RaiseMoney.png'
 import xdcAcc from './MediaImages/xdcAcc.jpeg'
 import './media.css'
@@ -100,8 +100,8 @@ const MediaMention = () => {
             link:"https://www.linkedin.com/posts/xinfinxdcnetwork_xdcaccelerator-xdcnetwork-blockchainstartups-activity-7228661977194102784-7CGh"
          },
          {
-            imgSrc:timesNext,
-            link:"https://timesnext.com/shivani-mehrotra-bajaj-startup-story-edubuk/"
+            imgSrc:einpresswire,
+            link:"https://www.einpresswire.com/article/692558064/international-education-evaluations-and-edubuk-partner-to-eliminate-fake-credentials-with-blockchain-verification"
          },
         ]
   return (

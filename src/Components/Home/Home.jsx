@@ -33,7 +33,7 @@ import sdg1 from "../../assets/sdg/sdg1.svg";
 import sdg2 from "../../assets/sdg/sdg2.svg";
 import sdg3 from "../../assets/sdg/sdg3.png";
 import sdg4 from "../../assets/sdg/sdg4.svg";
-import intro from '../../assets/intro.png'
+
 const Home = () => {
   const images = [mou1, mou2, mou3, mou4, mou5, mou6, mou7, mou8];
   const features = [feature1, feature2, feature3, feature4, feature5, feature6];
@@ -44,16 +44,19 @@ const Home = () => {
       id: 1,
       image: ieee,
       text: "Collaborated and MoU signed with World’s 4th Largest NACES (National Association of Credential Evaluation Services) Member: IEE (International Educational Evaluation) in the US. Transcript verification and transcript evaluation reports to be stored on the blockchain using Edubuk’s e-Seal application for study abroad applicant.",
+      href:"https://www.einpresswire.com/article/692558064/international-education-evaluations-and-edubuk-partner-to-eliminate-fake-credentials-with-blockchain-verification"
     },
     {
       id: 2,
       image: nsdc,
       text: "Collaborated with NSDC (National Skills Development Corporation, Govt. of India) under Skill India Digital Accelerator Program along with HDFC Bank Grants Program and Facilitated by T-Hub. Selected as top 10 Startups across India basis our CETA Program and eSealing of Educational & Work-Experience Certificates on the Blockchain.",
+      href:"https://www.linkedin.com/posts/apoorva-bajaj-iit-iim-cfa-edubuk_innovationecosystem-innovatewiththub-hdfcbank-activity-7193233564765728768--d0o?utm_source=share&utm_medium=member_android"
     },
     {
       id: 3,
       image: est,
       text: "Collaborated and MoU signed with EST Global and EST FAB giving for upskilling, reskilling and certifying learner's in Emerging Technologies including AI & Blockchain giving us access to thousands of students across the globe with ETS' vast Network of FAB (Fintech & Blockchain Association in the US and globally).",
+      href:"https://www.linkedin.com/posts/dr-sindhu-bhaskar-55a84568_with-great-excitement-i-announce-the-coming-activity-7174682311538413569-uLA6?utm_source=share&utm_medium=member_android"
     },
   ];
 
@@ -137,7 +140,7 @@ const Home = () => {
               <img src={card.image} alt={card.title} className="card-image" />
               <h2 className="card-title">{card.title}</h2>
               <p className="card-text">{card.text}</p>
-              <button className="learn-more-btn">Learn More</button>
+              <a href={card.href} target="_blank" rel="noreferrer" className="learn-more-btn">Learn More</a>
             </div>
           ))}
         </div>
