@@ -86,9 +86,9 @@ const About = () => {
         <h3>{data?.name}</h3>
         <h3>{data?.tag}</h3>
         <div className='social-icon'>
-        <a href={data?.linkedInLink}><FaLinkedin id='icon' /></a>
-        <a href={data?.teligramLink}><FaTelegram id='icon'/></a>
-        <a href={`mailto:${data?.mailId}`} ><MdOutlineMail id='icon'/></a>
+        <a href={data?.linkedInLink} target='_blank' rel='noreferrer'><FaLinkedin id='icon'/></a>
+        <a href={data?.teligramLink} target='_blank' rel='noreferrer'><FaTelegram id='icon' /></a>
+        <a href={`mailto:${data?.mailId}`} target='_blank' rel='noreferrer'><MdOutlineMail id='icon'/></a>
         </div>
         <p>{data?.about}</p>
         </div>
@@ -106,7 +106,7 @@ const About = () => {
         <h3>{data?.name}</h3>
         <h4>{data?.tag}</h4>
         <div className='social-icon'>
-        <a href={data?.linkedInLink}><FaLinkedin id='icon' /></a>
+        <a href={data?.linkedInLink} target='_blank' rel='noreferrer'><FaLinkedin id='icon' /></a>
         </div>
         </div>
       ))

@@ -26,7 +26,7 @@ const Footer = () => {
     </div>
     <div className='columns'>
     <ul>
-      <li><HashLink to='#learnerprofile'>Learner’s Profile</HashLink></li>
+      <li><HashLink to='#learnerprofile'>Learner’s Profile on Blockchain</HashLink></li>
       <li><HashLink to="#collabNSupport">Our Collaborators</HashLink></li>
       <li><HashLink to="#unSDG">UN SDG’s Compliance</HashLink></li>
       <li><Link to="/about">About Us</Link></li>
@@ -42,8 +42,8 @@ const Footer = () => {
     </div>
     <div className='columns'>
     <ul>
-      <li><a href="https://www.edubuk.io">Visit us at: www.edubuk.io</a></li>
-      <li><a href='mailto:support@edubuk.com'>Reach us at: support@edubuk.com</a></li>
+      <li><a href="https://www.edubuk.io" target='_blank' rel='noreferrer'>Visit us at: www.edubuk.io</a></li>
+      <li><a href='mailto:support@edubuk.com' target='_blank' rel='noreferrer'>Reach us at: support@edubuk.com</a></li>
       <li><Link to='/verifier'>Verify Certificates</Link></li>
       <li><Link to='/finder'>Request Credential</Link></li>
     </ul>
@@ -53,7 +53,7 @@ const Footer = () => {
       <h2>Follow us on :</h2>
       <a href='https://www.facebook.com/edubuk.trst/' target='_blank' rel='noreferrer'><FaFacebook id='icon'/></a>
       <a href='https://www.instagram.com/edubuk_/' target='_blank' rel='noreferrer'><FaInstagram id='icon'/></a>
-      <a href='https://www.linkedin.com/in/edubuk-ai-driven-decentralized-skilling-ecosystem-on-blockchain/' target='_blank' rel="noreferrer"><FaLinkedin id='icon'/></a>
+      <a href='https://www.linkedin.com/company/edubuk-ai-web3/' target='_blank' rel="noreferrer"><FaLinkedin id='icon'/></a>
       <a href='https://x.com/edubuktrust' target='_blank' rel="noreferrer"><FaTwitter id='icon'/></a>
       <a href='https://www.youtube.com/channel/UC4g4MH4F_JTbd1tqNS5pq1g/videos' target='_blank' rel="noreferrer"><FaYoutube id='icon'/></a>
     </div>
