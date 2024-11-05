@@ -3,14 +3,17 @@ import { EdubukContexts } from '../../Context/EdubukContext';
 import { Link, useLocation } from 'react-router-dom'; // Import useLocation
 import './navbar.css';
 import { GiHamburgerMenu } from "react-icons/gi";
-import { MdClose } from "react-icons/md";
+import { MdClose,MdOutlineCheckCircle } from "react-icons/md";
 import Sidebar from '../Sidebar/Sidebar';
 import logo from '../../assets/EdubukLogo.png';
+import WalletInfo from '../WalletInfo/WalletInfo';
 import { connectWallet } from '../../Utils/apiFeature';
+
 const Navbar = () => {
-  const { openSidebar, setOpenSidebar, account } = useContext(EdubukContexts);
+  const { openSidebar, setOpenSidebar, account,setAccount } = useContext(EdubukContexts);
   const [activeNav, setActiveNav] = useState("Home");
-  const location = useLocation(); // Get the current URL
+  const [showWalletInfo , setShowWalletInfo] = useState(false);
+  const location = useLocation();
 
   const [windowDimensions, setWindowDimensions] = useState({
     width: window.innerWidth,
@@ -53,6 +56,11 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const walletConnectHandler = async()=>{
+    const connectedAccount = await connectWallet();
+    setAccount(connectedAccount);
+  }
+
   return (
     <>
       <div className='header-container'>
@@ -78,13 +86,16 @@ const Navbar = () => {
           )}
         </div>
         {!account&&
-        <button id="connect-btn" onClick={connectWallet}>Connect Wallet</button>
+        <button id="connect-btn" onClick={walletConnectHandler}>Connect Wallet</button>
         }
         {account&&
-        <div className='account-info'>
-          <p>Connected With : <span>{account?.substring(0, 6)}...{account?.substring(account.length - 5)}</span></p>
-        </div>
+          <button id="connected-icon" onClick={()=>setShowWalletInfo(!showWalletInfo)}><MdOutlineCheckCircle id='icons'/> <span id='account-num'>{account?.substring(0, 6)}...{account?.substring(account?.length - 5)}</span></button>
         }
+        {
+          showWalletInfo&& <WalletInfo showWalletInfo = {showWalletInfo}/>
+        }
+      </div>
+      <div>
       </div>
       {openSidebar && <Sidebar navData={navData} />}
     </>

@@ -97,78 +97,32 @@ nav a:hover::after
     border-radius: 2px;
 }
 
-/* nav a:nth-child(1)
-{
-    width: 80px;
-}
-nav a:nth-child(1):hover~.animation
-{
-    width: 80px;
-    left: 15;
-}
-nav a:nth-child(2)
-{
-    width: 80px;
-}
-nav a:nth-child(2):hover~.animation
-{
-    width: 80px;
-    left: 95px;
-}
-nav a:nth-child(3)
-{
-    width: 80px;
-}
-nav a:nth-child(3):hover~.animation
-{
-    width: 80px;
-    left: 175px;
-}
-nav a:nth-child(4)
-{
-    width: 80px;
-}
-nav a:nth-child(4):hover~.animation
-{
-    width: 80px;
-    left: 255px;
-}
-nav a:nth-child(5)
-{
-    width: 80px;
-}
-nav a:nth-child(5):hover~.animation
-{
-    width: 80px;
-    left: 335px;
-}
-nav a:nth-child(6)
-{
-    width: 80px;
-}
-nav a:nth-child(6):hover~.animation
-{
-    width: 80px;
-    left: 415px;
-}
-nav a:nth-child(7)
-{
-    width: 80px;
-}
-nav a:nth-child(7):hover~.animation
-{
-    width: 80px;
-    left: 495px;
-} */
 
-#connect-btn
+
+#connected-icon, #connect-btn
 {
-  padding: 10px 20px;
-  font-size: 15px;
-  border-radius: 0.3rem;
-  outline: none;
-  border: none;
-  cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 0.2rem;
+    gap: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#icons
+{
+    width: 20px;
+    height: 20px;
+    color: yellow;
+}
+
+#account-num
+{
+    color: white;
+    font-weight: bold;
 }
 
 

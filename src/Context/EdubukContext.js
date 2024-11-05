@@ -29,6 +29,7 @@ export const EdubukProvider = ({children}) => {
     loading,
     setLoading,
     account,
+    setAccount,
     studentName,
     setStudentName,
     openSidebar,
