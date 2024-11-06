@@ -7,7 +7,7 @@ import { EdubukContexts } from '../../Context/EdubukContext';
 import toast from 'react-hot-toast';
 import SmallLoader from '../SmallLoader/SmallLoader';
 
-const WalletInfo = (showWalletInfo) => {
+const WalletInfo = ({showWalletInfo,setShowWalletInfo}) => {
   const { account,setAccount,chainId} = useContext(EdubukContexts);
   const [balance,setBalance] = useState(null);
 
@@ -47,7 +47,8 @@ const WalletInfo = (showWalletInfo) => {
     {
       setAccount(null);
       setBalance(null);
-      toast.success("Wallet Disconnected")
+      toast.success("Wallet Disconnected");
+      setShowWalletInfo(false)
     }
     else
     {

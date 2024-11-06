@@ -19,7 +19,7 @@ export const EdubukProvider = ({children}) => {
     }
     
     useEffect(()=>{
-        fetchData();
+        //fetchData();
         
     },[])
   return (

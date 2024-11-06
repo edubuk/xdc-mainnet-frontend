@@ -92,7 +92,7 @@ const Navbar = () => {
           <button id="connected-icon" onClick={()=>setShowWalletInfo(!showWalletInfo)}><MdOutlineCheckCircle id='icons'/> <span id='account-num'>{account?.substring(0, 6)}...{account?.substring(account?.length - 5)}</span></button>
         }
         {
-          showWalletInfo&& <WalletInfo showWalletInfo = {showWalletInfo}/>
+          showWalletInfo&& <WalletInfo showWalletInfo = {showWalletInfo} setShowWalletInfo={setShowWalletInfo}/>
         }
       </div>
       <div>
