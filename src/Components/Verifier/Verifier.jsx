@@ -45,6 +45,8 @@ const [values, setValues] = useState({
   const verifyCert = async (e) => {
     e.preventDefault();
     //const currAccount = account.toLowerCase();
+    if(!fileHash)
+      return toast.error("No File choosen");
     try {
       setLoading(true)
       const contract = await connectingWithContract();

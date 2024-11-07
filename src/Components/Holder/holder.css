@@ -9,8 +9,10 @@
 {
     width: 100%;
     text-align: center;
-    border-bottom: 2px solid #34495e;
+    border-bottom: 2px dashed #34495e;
+    color: #006666;
 }
+
 
 .getBtn
 {
@@ -37,7 +39,7 @@
 /* Container for the card grid */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   column-gap: 10px;
   gap: 10px;
   padding: 2rem;
@@ -46,12 +48,10 @@
   
   /* Individual card styling */
   .card {
-    width: 250px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 0px 20px;
-    padding-bottom:15px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -68,11 +68,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    gap: 15px;
+    padding-bottom: 20px;
   }
   
   h3 {
-    color: #333;
+    color: #006666;
   }
 
   .card-header-btn{
@@ -98,7 +99,7 @@
   }
   
   p {
-    color: #666;
+    color: #006666;
   }
 
   .card>a{
@@ -165,8 +166,3 @@
 
  
 }
-
-
-  
-
-  

@@ -30,27 +30,31 @@
 {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap: 10px;
     row-gap: 20px;
     place-items: center;
     width: 100%;
 }
 
-.card
+.profile-card
 {
     border: none;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border-radius: 8px;
 }
-.card h3
+
+.profile-card h3
 {
     margin: 0;
     color: #006666;
 }
-.card h4
+.profile-card h4
 {
     color: #3498db;
 }
 
-.card img
+.profile-card img
 {
     padding: 10px;
     width: 220px;

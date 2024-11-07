@@ -9,8 +9,8 @@ const baseUrl= process.env.REACT_APP_BaseURL;
 
 const Model = ({ setOpenModal, currUri, isShareBtn }) => {
   const [isDataFetched, setDataFetching] = useState(false);
-  const [receiverName, setReceiverName] = useState("");
-  const [receiverEmail, setReceiverEmail] = useState("");
+  const [receiverName, setReceiverName] = useState(null);
+  const [receiverEmail, setReceiverEmail] = useState(null);
   const [accessList, setAccessList] = useState([]);
   const {studentName,loading,setLoading} =useContext(EdubukContexts);
 
@@ -18,7 +18,7 @@ const Model = ({ setOpenModal, currUri, isShareBtn }) => {
     const min = 10000000;
     const max = 99999999;
     let randomNumber;
-      randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
     return randomNumber;
   }
 
@@ -58,6 +58,8 @@ const Model = ({ setOpenModal, currUri, isShareBtn }) => {
 
   const shareCredAccess = async (e) => {
     e.preventDefault();
+    if(!receiverName || !receiverEmail)
+    return toast.error("Please provide all inputs")
     const userid = generateUnique8DigitNumber();
     try {
     
@@ -68,12 +70,15 @@ const Model = ({ setOpenModal, currUri, isShareBtn }) => {
         body: JSON.stringify({ "email":receiverEmail, "name":receiverName, "userId":userid, "pinataHash":currUri }),
         headers: {
           "Content-Type": "application/json",
+          'Authorization': `Bearer ${process.env.REACT_APP_AuthJWT}`
         },
       });
       const data = await res.json();
       if (data?.success) {
         await sendEmail(e, receiverName, receiverEmail, studentName,userid);
         setLoading(false)
+        setReceiverEmail(null);
+        setReceiverName(null)
       }
     } catch (error) {
       toast.error("something went wrong");
@@ -93,6 +98,7 @@ const Model = ({ setOpenModal, currUri, isShareBtn }) => {
         body: JSON.stringify({ email,pinataHash, updatedUserId}),
         headers: {
           "Content-Type": "application/json",
+          'Authorization': `Bearer ${process.env.REACT_APP_AuthJWT}`
         },
       });
       const data = await res.json();
@@ -147,7 +153,7 @@ const Model = ({ setOpenModal, currUri, isShareBtn }) => {
           CLOSE
         </button>
 
-        <div className="addBox">
+        <div>
           {isShareBtn ? (
             <>
               <form className="addinpput" onSubmit={shareCredAccess}>
@@ -175,7 +181,7 @@ const Model = ({ setOpenModal, currUri, isShareBtn }) => {
               </form>
             </>
           ) : (
-            accessList.length>0?
+            accessList?.length>0?
             <div className="dropdown">
               {accessList?.map((item, index) => (
                 <div key={index} className="shared-list">
@@ -193,7 +199,7 @@ const Model = ({ setOpenModal, currUri, isShareBtn }) => {
                   )}
                 </div>
               ))}
-          </div>:<>{isDataFetched?<SmallLoader />:<div>No Record Found...</div>}</>
+          </div>:<div id="no-record-div">{isDataFetched?<SmallLoader />:<div >No Record Found...</div>}</div>
           )}
         </div>
       </div>

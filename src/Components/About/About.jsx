@@ -81,7 +81,7 @@ const About = () => {
     <div className='team-member' id='team-info'>
     {
       teamsData?.map((data,i)=>(
-        <div className='card' key={data.id}>
+        <div className='profile-card' key={data.id}>
         <img src={data?.imgSrc} alt='team-member'></img>
         <h3>{data?.name}</h3>
         <h3>{data?.tag}</h3>
@@ -101,7 +101,7 @@ const About = () => {
     <div className='team-member'>
     {
       advisorData?.map((data,i)=>(
-        <div className='card' key={data.id}>
+        <div className='profile-card' key={data.id}>
         <img src={data?.imgSrc} alt='team-member'></img>
         <h3>{data?.name}</h3>
         <h4>{data?.tag}</h4>

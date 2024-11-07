@@ -12,6 +12,8 @@ const Holder = () => {
   const [selectedIssuer, setSelectedIssuer] = useState(''); // State for dropdown selection
 
   const getStudentData = async () => {
+    if(!account)
+      return toast.error("Please connect your wallet")
     try {
       setLoading(true);
       const contract = await connectingWithContract();

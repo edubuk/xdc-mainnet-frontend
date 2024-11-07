@@ -5,7 +5,7 @@ import SmallLoader from "../SmallLoader/SmallLoader";
 import { EdubukContexts } from "../../Context/EdubukContext";
 import CryptoJS from "crypto-js";
 
-const RegCertValue = {
+const regCertValue = {
   studentName: "",
   studentAdd: "",
   certType: "",
@@ -15,15 +15,17 @@ const RegCertValue = {
 const PostCert = () => {
   const [fileHash, setFileHash] = useState(null);
   const [uri, setUri] = useState(null);
-  const [values, setValues] = useState(RegCertValue);
-  const { connectingWithContract, account, loading, setLoading } =
-    useContext(EdubukContexts);
+  const [values, setValues] = useState(regCertValue);
+  const { connectingWithContract, account, loading, setLoading } = useContext(EdubukContexts);
   const [inputFile, setInputFile] = useState();
   const [isTransaction, setTransaction] = useState(false);
   const [uploadLoader, setUploadLoader] = useState(false);
+  const [isNewRegistration, setNewRegistration] = useState(false);
   //upload docs to IPFS
   const uploadToIpfs = async (e) => {
     e.preventDefault();
+    if(!account)
+      return toast.error("Please connect your wallet")
     try {
       if (!inputFile) {
         return toast.error("No file selected !");
@@ -43,7 +45,7 @@ const PostCert = () => {
         }
       );
 
-      console.log("data processed");
+      console.log("data processed")
       const upload = await response.json();
       if (upload?.IpfsHash) {
         toast.success("File uploaded successfully");
@@ -74,9 +76,16 @@ const PostCert = () => {
   };
 
   // upload data on blockchain
-
   const regCert = async (e) => {
     e.preventDefault();
+    if(!values.studentName || !values.studentAdd || !values.certType || !values.issuerName)
+      {
+        return toast.error("Please provide all input values..")
+      }
+      if(!uri)
+      {
+        return toast.error("Please upload the document before registration")
+      }
     try {
       setLoading(true);
       const contract = await connectingWithContract();
@@ -92,8 +101,12 @@ const PostCert = () => {
       await registerCert.wait();
       setLoading(false);
       toast.success("Certificated Posted successfully");
-      setTransaction(true);
-      setValues("");
+      setTransaction(true)
+      setValues(regCertValue);
+      setUri(null);
+      setInputFile(null);
+      setFileHash(null);
+      setNewRegistration(true);
     } catch (error) {
       setLoading(false);
       toast.error("Error in certificate Registration", error);
@@ -163,7 +176,7 @@ const PostCert = () => {
             value={values.issuerName}
             onChange={onChangeHandler}
           ></input>
-          <label htmlFo="name">Issuer Name</label>
+          <label htmlFor="name">Issuer Name</label>
         </div>
         <div className="upload-section">
           <input
@@ -192,34 +205,33 @@ const PostCert = () => {
             </a>
           )}
         </div>
-        {fileHash && (
+        {fileHash &&
           <div className="fileHash">
-            <p>
-              <strong>FileHash : </strong>
-              <span>{fileHash}</span>
-            </p>
+            <p><strong>FileHash : </strong><span>{fileHash}</span></p>
           </div>
-        )}
-        {loading === true ? (
+        }
+        {loading ? (
           <SmallLoader />
         ) : (
           <div className="multi-btn">
-            {" "}
             <button id="register-btn" onClick={regCert}>
-              Register Certificate
-            </button>{" "}
+              {isNewRegistration ? "Register New Certificate" : "Register Certificate"}
+            </button>
             {isTransaction && (
+              <div>
               <a
-                href={`https://explorer.xinfin.network/address/${account}`}
-                id="xdc-explorer"
+                href={`https://giant-half-dual-testnet.explorer.testnet.skalenodes.com/address/${account}`}
+                id="solana-explorer"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 View Transaction
               </a>
+              </div>
             )}
           </div>
         )}
+
       </form>
     </div>
   );
